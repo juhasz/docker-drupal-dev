@@ -3,6 +3,9 @@
 FROM juhasz/nginx-php-dev:latest
 MAINTAINER Márton Juhász <m@juhaszmarton.hu>
 
+# Use differnet nginx config.
+COPY etc/nginx/sites-available/default /etc/nginx/sites-available/default
+
 # Set up for nodejs install.
 RUN curl -sL https://deb.nodesource.com/setup | sudo bash -
 
@@ -22,3 +25,4 @@ RUN composer global require drush/drush:dev-master
 
 # Install Grunt.
 RUN npm install -g grunt-cli
+
